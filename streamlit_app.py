@@ -10,8 +10,8 @@ st.write(
 )
 
 from snowflake.snowpark.functions import col 
-cnx = st.connection("snowflake")
-session = cnx.session(**st.secrets['snowflake'])
+cnx = st.connection("snowflake", **st.secrets['snowflake'])
+session = cnx.session()
 
 
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
